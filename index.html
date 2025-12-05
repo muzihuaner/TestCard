@@ -4,95 +4,86 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>测试卡生成器</title>
+    <title>快点电视测试卡生成器</title>
+    <meta name="description" content="电视测试卡生成器，支持多种图案和自定义标签，适用于视频输出、OBS 等场景。">
+    <meta name="keywords" content="测试卡,电视测试卡,Test Card,OBS,视频工具,图案生成,电视,视频制作,全屏,自定义">
+    <meta name="author" content="muzihuaner">
+    <meta property="og:title" content="测试卡生成器">
+    <meta property="og:description" content="电视测试卡生成器，支持多种图案和自定义标签，适用于视频输出、OBS 等场景。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://testcard.quickso.cn">
+    <meta property="og:image" content="imgs/overscan-btn.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="测试卡生成器">
+    <meta name="twitter:description" content="电视测试卡生成器，支持多种图案和自定义标签，适用于视频输出、OBS 等场景。">
+    <meta name="twitter:image" content="imgs/overscan-btn.svg">
+    <link rel="canonical" href="https://testcard.quickso.cn">
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
 
 <body>
 
-    <div id="controls">
+    <main id="controls">
         <h1>电视测试卡生成器</h1>
         
-        <h2>图案</h2>
-        <p>
-            <span class="btn" onclick="setPattern('black')" style="background:black">
-            </span>
-            <span class="btn" onclick="setPattern('gray50')" style="background:#808080">
-            </span>
-            <span class="btn" onclick="setPattern('darkblue')" style="background:#0023c0">
-            </span>
-            <span class="btn" onclick="setPattern('mauve')" style="background-image: url('imgs/mauve.svg')">
-            </span>
-            <span class="btn" onclick="setPattern('bars75')" style="background-image: url('imgs/bars75.svg')">
-            </span>
-            <span class="btn" onclick="setPattern('bars100')" style="background-image: url('imgs/bars100.svg')">
-            </span>
-            <span class="btn" onclick="setPattern('smpte')" style="background-image: url('imgs/smpte.svg')">
-            </span>
-            <span class="btn" onclick="setPattern('lines')" style="background-image: url('imgs/lines.svg')">
-            </span>
-            <span class="btn" onclick="setPattern('linesw')" style="background-image: url('imgs/linesw.svg')">
-            </span>
-            <span class="btn" onclick="setPattern('checkerboard')" style="background-image: url('imgs/checkerboard.svg')">
-            </span>
-            </span>
-            <span class="btn" onclick="setPattern('PM5544')" style="background-image: url('imgs/PM5544.svg')">
-            </span>
-        </p>
+        <section aria-labelledby="pattern-title">
+            <h2 id="pattern-title">图案</h2>
+            <p>
+                <span class="btn" onclick="setPattern('black')" style="background:black" title="黑色"></span>
+                <span class="btn" onclick="setPattern('gray50')" style="background:#808080" title="50%灰"></span>
+                <span class="btn" onclick="setPattern('darkblue')" style="background:#0023c0" title="深蓝"></span>
+                <span class="btn" onclick="setPattern('mauve')" style="background-image: url('imgs/mauve.svg')" title="紫色图案"></span>
+                <span class="btn" onclick="setPattern('bars75')" style="background-image: url('imgs/bars75.svg')" title="75%色条"></span>
+                <span class="btn" onclick="setPattern('bars100')" style="background-image: url('imgs/bars100.svg')" title="100%色条"></span>
+                <span class="btn" onclick="setPattern('smpte')" style="background-image: url('imgs/smpte.svg')" title="SMPTE"></span>
+                <span class="btn" onclick="setPattern('lines')" style="background-image: url('imgs/lines.svg')" title="线条"></span>
+                <span class="btn" onclick="setPattern('linesw')" style="background-image: url('imgs/linesw.svg')" title="白线"></span>
+                <span class="btn" onclick="setPattern('checkerboard')" style="background-image: url('imgs/checkerboard.svg')" title="棋盘格"></span>
+                <span class="btn" onclick="setPattern('PM5544')" style="background-image: url('imgs/PM5544.svg')" title="PM5544"></span>
+            </p>
+        </section>
 
-        <h2>几何</h2>
-        <p>
-            <span class="btn" id="btn-circle" onclick="toggleOption('circle')"
-                style="background-image: url('imgs/circle-btn.svg')">
-            </span>
-            <span class="btn" id="btn-circlew" onclick="toggleOption('circlew')"
-                style="background-image: url('imgs/circlew-btn.svg')">
-            </span>
-            <span class="btn" id="btn-overscan" onclick="toggleOption('overscan')"
-                style="background-image: url('imgs/overscan-btn.svg')">
-            </span>
-        </p>
+        <section aria-labelledby="geometry-title">
+            <h2 id="geometry-title">几何</h2>
+            <p>
+                <span class="btn" id="btn-circle" onclick="toggleOption('circle')" style="background-image: url('imgs/circle-btn.svg')" title="圆形"></span>
+                <span class="btn" id="btn-circlew" onclick="toggleOption('circlew')" style="background-image: url('imgs/circlew-btn.svg')" title="白圆"></span>
+                <span class="btn" id="btn-overscan" onclick="toggleOption('overscan')" style="background-image: url('imgs/overscan-btn.svg')" title="过扫描"></span>
+            </p>
+        </section>
 
-        <h2>标签</h2>
-        <p>
-            <textarea id="label-widget" oninput="setLabel(this.value)" rows=5 cols=30></textarea>
-        </p>
+        <section aria-labelledby="label-title">
+            <h2 id="label-title">标签</h2>
+            <p>
+                <textarea id="label-widget" oninput="setLabel(this.value)" rows=5 cols=30 aria-label="自定义标签"></textarea>
+            </p>
+        </section>
 
-        <p>
-            <span class="btn" id="btn-text" onclick="toggleOption('text')">
-                文本
-            </span>
-            <span class="btn" id="btn-time" onclick="toggleOption('time')">
-                时间
-            </span>
-            <span class="btn" id="btn-inverted" onclick="toggleOption('inverted')">
-                反转
-            </span>
-            <span class="btn" id="btn-boxed" onclick="toggleOption('boxed')">
-                加框
-            </span>
-            <span class="btn" id="btn-blink" onclick="toggleOption('blink')">
-                闪烁
-            </span>
-        </p>
-        <div id="instructions">
+        <section aria-labelledby="options-title">
+            <h2 id="options-title">选项</h2>
+            <p>
+                <span class="btn" id="btn-text" onclick="toggleOption('text')" title="显示文本">文本</span>
+                <span class="btn" id="btn-time" onclick="toggleOption('time')" title="显示时间">时间</span>
+                <span class="btn" id="btn-inverted" onclick="toggleOption('inverted')" title="反转颜色">反转</span>
+                <span class="btn" id="btn-boxed" onclick="toggleOption('boxed')" title="加框">加框</span>
+                <span class="btn" id="btn-blink" onclick="toggleOption('blink')" title="闪烁">闪烁</span>
+            </p>
+        </section>
+        <section id="instructions">
             <h3>使用说明</h3>
-        <p>
-            此工具可用于为视频输出或像 OBS 这样的工具生成测试图案。
-        </p>
-        <p>
-            <strong>点击预览显示器</strong>或点击下方按钮，以全屏显示测试卡。再次点击可返回此页面。
-        </p>
-        <p><strong>复制全屏链接</strong>，并在 OBS 中添加一个浏览器源以显示您自定义的测试卡。</p>
-        <p>
-            <button onclick="toggleFullscreen()">全屏显示</button>
-            <button onclick="copyFullscreenLink()">复制全屏链接</button>
-        </p>
-        </div>
-    </div>
+            <p>此工具可用于为视频输出或像 OBS 这样的工具生成测试图案。</p>
+            <p><strong>点击预览显示器</strong>或点击下方按钮，以全屏显示测试卡。再次点击可返回此页面。</p>
+            <p><strong>复制全屏链接</strong>，并在 OBS 中添加一个浏览器源以显示您自定义的测试卡。</p>
+            <p>
+                <button onclick="toggleFullscreen()">全屏显示</button>
+                <button onclick="copyFullscreenLink()">复制全屏链接</button>
+            </p>
+            <p>有任何问题或建议，请在 <a href="https://github.com/muzihuaner/TestCard" target="_blank" style="color: aliceblue;">GitHub</a> 上打开一个 issue。</p>
+        </section>
+    </main>
 
-    <div id="preview">
+    <aside id="preview">
         <p id="ratio-btns">
             <label>
                 预览比例
@@ -100,10 +91,8 @@
                 <button onclick="setPreviewWide(true)">16:9</button>
             </label>
         </p>
-        <canvas id="testcard" onclick="toggleFullscreen()" width=1920 height=1080>
-        </canvas>
-    </div>
-    </div>
+        <canvas id="testcard" onclick="toggleFullscreen()" width="1920" height="1080" aria-label="测试卡预览"></canvas>
+    </aside>
 </body>
 
 </html>
